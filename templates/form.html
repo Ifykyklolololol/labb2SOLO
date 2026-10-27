@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{% if mode == "edit" %}Redigera{% else %}Ny annons{% endif %}{% endblock %}
+{% block content %}
+<h1>{% if mode == "edit" %}Redigera annons{% else %}Ny annons{% endif %}</h1>
+{% if errors %}
+    <ul class="errors">
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<form method="post">
+    <label>Titel
+        <input name="title" value="{{ listing.title }}" maxlength="100" required>
+    </label>
+    <label>Beskrivning
+        <textarea name="description" rows="5" required>{{ listing.description }}</textarea>
+    </label>
+    <label>Pris (kr)
+        <input name="price" value="{{ listing.price }}" inputmode="decimal" required>
+    </label>
+    <label>Kategori
+        <select name="category" required>
+            <option value="">Välj</option>
+            {% for item in categories %}
+                <option value="{{ item }}" {% if item == listing.category %}selected{% endif %}>{{ item }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label>Status
+        <select name="status">
+            <option value="Active" {% if listing.status == "Active" %}selected{% endif %}>Aktiv</option>
+            <option value="Sold" {% if listing.status == "Sold" %}selected{% endif %}>Såld</option>
+        </select>
+    </label>
+    <button type="submit">Spara</button>
+    <a href="{{ url_for('index') }}">Avbryt</a>
+</form>
+{% endblock %}

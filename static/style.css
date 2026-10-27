@@ -1,0 +1,100 @@
+:root {
+  color: #1a2332;
+  background: #f4f1ea;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #1a2332;
+  color: #fff;
+}
+
+header a {
+  color: #fff;
+  margin-right: 1rem;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+a {
+  color: #0b5f59;
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+}
+
+.cards li {
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.cards a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.filters, form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+
+.filters {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+input, select, textarea, button {
+  font: inherit;
+  padding: 0.45rem 0.55rem;
+}
+
+button {
+  background: #0f766e;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c2410c;
+}
+
+.description {
+  white-space: pre-wrap;
+}
+
+.errors, .flash {
+  background: #fff;
+  border-left: 4px solid #c2410c;
+  padding: 0.6rem 0.8rem;
+}
+
+.flash {
+  border-left-color: #0f766e;
+}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ listing.title }}{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('index') }}">← Alla annonser</a></p>
+<h1>{{ listing.title }}</h1>
+<p class="meta">{{ listing.category }} · {{ listing.status }}</p>
+<p class="price">{{ "%.0f"|format(listing.price) }} kr</p>
+<p class="description">{{ listing.description }}</p>
+<p>
+    <a href="{{ url_for('edit', listing_id=listing.id) }}">Redigera</a>
+    <a href="{{ url_for('delete', listing_id=listing.id) }}">Ta bort</a>
+</p>
+{% endblock %}

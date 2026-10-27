@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Ta bort{% endblock %}
+{% block content %}
+<h1>Ta bort annons</h1>
+<p>Vill du ta bort <strong>{{ listing.title }}</strong>?</p>
+<form method="post">
+    <button type="submit">Ta bort</button>
+    <a href="{{ url_for('detail', listing_id=listing.id) }}">Avbryt</a>
+</form>
+{% endblock %}

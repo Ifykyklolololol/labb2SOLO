@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Annonser{% endblock %}
+{% block content %}
+<h1>Annonser</h1>
+<form class="filters" method="get">
+    <input type="search" name="q" value="{{ query }}" placeholder="Sök titel eller beskrivning">
+    <select name="category">
+        <option value="">Alla kategorier</option>
+        {% for item in categories %}
+            <option value="{{ item }}" {% if item == category %}selected{% endif %}>{{ item }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Sök</button>
+</form>
+
+{% if listings %}
+    <ul class="cards">
+        {% for listing in listings %}
+            <li>
+                <a href="{{ url_for('detail', listing_id=listing.id) }}">
+                    <strong>{{ listing.title }}</strong>
+                    <span>{{ listing.category }} · {{ "%.0f"|format(listing.price) }} kr · {{ listing.status }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Inga annonser hittades.</p>
+{% endif %}
+{% endblock %}
